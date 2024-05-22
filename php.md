@@ -63,7 +63,9 @@ sudo service php8.3-fpm restart
 
 ## Встановити розширення для браузера :
 xdebug-helper
-![Screenshot from 2024-05-21 18-28-34.png](..%2F..%2F..%2Fhome%2Fliza%2FPictures%2FScreenshots%2FScreenshot%20from%202024-05-21%2018-28-34.png)
+
+![Xdebug.png](img/Xdebug.png)
 
 ## Налаштування для phpstorm
-![Screenshot from 2024-05-21 18-30-09.png](..%2F..%2F..%2Fhome%2Fliza%2FPictures%2FScreenshots%2FScreenshot%20from%202024-05-21%2018-30-09.png)
+
+![php.education.png](img/php.education.png)

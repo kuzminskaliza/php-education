@@ -42,7 +42,8 @@ echo "I'm about to learn PHP!<br>";
 echo "This ", "string ", "was ", "made ", "with multiple parameters." . "<br>";
 
 $txt1 = "Learn PHP";
-echo "<h4>" . $txt1 . "</h4>";
+echo "<h4>" . $txt1 . "</h4>" . "<br>";
+print "<h4>" . $txt1 . "</h4>";
 ?>
 
 

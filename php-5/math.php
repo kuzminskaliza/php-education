@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<body>
-
 <?php
 //повертає значення PI
 echo(pi());
@@ -23,8 +19,6 @@ echo(round(0.49));
 //rand() генерує рандомне число
 echo(rand());
 echo(rand(10, 100));
-?>
 
-</body>
-</html>
+
 

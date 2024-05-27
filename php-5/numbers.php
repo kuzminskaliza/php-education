@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<body>
-
 <?php
 $a = 5; //integer
 $b = 5.34; //float
@@ -32,10 +28,5 @@ var_dump(is_numeric($x));
 $x = "Hello";
 var_dump(is_numeric($x));
 
-
-?>
-
-</body>
-</html>
 
 

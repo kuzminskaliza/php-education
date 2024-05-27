@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<body>
-
 <?php
 echo "hello";
 echo 'hello';
@@ -59,11 +55,4 @@ $u = "Hello";
 $o = "World";
 $h = $u . $o;
 echo $h;
-
-
-
-?>
-
-</body>
-</html>
 

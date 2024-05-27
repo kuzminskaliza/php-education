@@ -32,7 +32,7 @@ var_dump($c);
 
 
 //array - масив
-$cars =["Volvo","BMW","Toyota"];
+$cars = ["Volvo","BMW","Toyota"];
 var_dump($cars);
 
 

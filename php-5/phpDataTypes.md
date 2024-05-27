@@ -8,6 +8,7 @@ $c = true; // boolean
 $c = false; // boolean
 $d = null; // null
 $e = "Hello"; // string
+$f = 'Hello'; // string
 
 // Складні типи даних
 $array = [1, 2, 3, 4, 5, 6, 7, 3.1415, true, false, null, 'string']; // масив

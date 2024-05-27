@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<body>
-
 <?php
 $x = 5;
 var_dump($x); //отримує тип даних будь-якого обʼєкта
 
 
 //string
-$z = "Hello World!";
+$z = 'Hello World!';
 $y = 'Hello world!';
 
 var_dump($z);
@@ -32,7 +28,7 @@ var_dump($c);
 
 
 //array - масив
-$cars = ["Volvo","BMW","Toyota"];
+$cars = ['Volvo','BMW','Toyota'];
 var_dump($cars);
 
 
@@ -47,19 +43,15 @@ class Car {
     }
 
     public function message(){
-        return "My car is a " . $this->color . " " . $this->model . "!";
+        return 'My car is a ' . $this->color . ' ' . $this->model . '!';
    }
 }
-$myCar = new Car("red", "Volvo");
+$myCar = new Car('red', 'Volvo');
 var_dump($myCar);
 
 
 //null
-$f = "hello world!";
+$f = 'hello world!';
 $f = null;
 var_dump($f);
 
-?>
-
-</body>
-</html>

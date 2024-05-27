@@ -14,7 +14,7 @@ echo $int_cast;
 echo "<br>";
 
 $x = "23465.768";
-$int_cast = (int)$x;
+$intCast = (int)$x;
 echo $int_cast;
 
 $x = 5985;

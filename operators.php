@@ -125,39 +125,33 @@ echo $txt3;
 
 
 //Оператори масивів
-$x = array("a" => "red", "b" => "green");
-$y = array("c" => "blue", "d" => "yellow");
-
+$x = ['a' => 'red', 'b' => 'green'];
+$y = ['c' => 'blue', 'd' => 'yellow'];
 print_r($x + $y); //обʼєднає х і у
 
 
-$x = array("a" => "red", "b" => "green");
-$y = array("c" => "blue", "d" => "yellow");
-
+$x = ['a' => 'red', 'b' => 'green'];
+$y = ['c' => 'blue', 'd' => 'yellow'];
 var_dump($x == $y); //повертає false тому що х і у мають різні ключі і значення
 
 
-$x = array("a" => "red", "b" => "green");
-$y = array("c" => "blue", "d" => "yellow");
-
+$x = ['a' => 'red', 'b' => 'green'];
+$y = ['c' => 'blue', 'd' => 'yellow'];
 var_dump($x === $y); //повертає false оскільки х і у мають різні ключі і значення  і не відносяться до одного і того ж самого типу
 
 
-$x = array("a" => "red", "b" => "green");
-$y = array("c" => "blue", "d" => "yellow");
-
+$x = ['a' => 'red', 'b' => 'green'];
+$y = ['c' => 'blue', 'd' => 'yellow'];
 var_dump($x != $y); //повертає true тому що х не рівний у
 
 
-$x = array("a" => "red", "b" => "green");
-$y = array("c" => "blue", "d" => "yellow");
-
+$x = ['a' => 'red', 'b' => 'green'];
+$y = ['c' => 'blue', 'd' => 'yellow'];
 var_dump($x <> $y); //повертає true тому що х не рівний у
 
 
-$x = array("a" => "red", "b" => "green");
-$y = array("c" => "blue", "d" => "yellow");
-
+$x = ['a' => 'red', 'b' => 'green'];
+$y = ['c' => 'blue', 'd' => 'yellow'];
 var_dump($x !== $y); //повертає true  якщо х не збігається з у
 
 

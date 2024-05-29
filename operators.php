@@ -129,15 +129,15 @@ $x = 100;
 $y = 50;
 
 if ($x == 100 && $y == 50) {
-    echo "Hello world!";      //true якщо обидва значення є правильні
+    echo 'Hello world!';      //true якщо обидва значення є правильні
 }
 
 if ($x == 100 || $y == 80) {
-    echo "Hello world!";     //true якщо одне значення правильне
+    echo 'Hello world!';     //true якщо одне значення правильне
 }
 
 if (!($x == 90)) {
-    echo "Hello world!";    //true якщо жодне із значень є правильним
+    echo 'Hello world!';    //true якщо х не правильний
 }
 
 

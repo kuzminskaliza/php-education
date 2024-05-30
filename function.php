@@ -93,3 +93,27 @@ echo 'f is ' . is_string($f); //true
 
 $g = '';
 echo 'g is ' . is_string($g); //true
+
+
+//видаляє змінну
+$a = 'Hello world!';
+echo 'The value of variable "a" before unset:' . $a;
+unset($a);
+echo 'The value of variable "a" after unset:';
+
+
+//перевіряє чи змінна є масивом
+$a = 'Hello';
+echo 'a is ' . is_array($a); //false
+
+$b = array('red', 'green', 'blue'); //true
+echo 'b is ' . is_array($b);
+
+$c = array('Peter'=>'35', 'Ben'=>'37', 'Joe'=>'43'); //true
+echo 'c is ' . is_array($c);
+
+$d = 'red, green, blue';
+echo 'd is ' . is_array($d); //false
+
+
+

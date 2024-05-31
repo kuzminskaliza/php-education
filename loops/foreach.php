@@ -7,7 +7,7 @@ $colors = [
 ];
 
 foreach ($colors as $x) {
-    echo $x . " ";
+    echo $x .PHP_EOL;
 }
 
 
@@ -18,7 +18,7 @@ $members = [
 ];
 
 foreach ($members as $x => $y) {
-    echo $x . " : " . $y;
+    echo $x . ' : ' . $y .PHP_EOL;
 }
 
 
@@ -30,8 +30,10 @@ $color = [
 ];
 
 foreach ($color as $x) {
-    if ($x == 'blue') break;
-    echo $x;
+    if ($x == 'blue') {
+        break;
+    }
+    echo $x .PHP_EOL;
 }
 
 
@@ -43,6 +45,8 @@ $color = [
 ];
 
 foreach ($color as $x) {
-    if ($x == 'blue') continue;
-    echo $x;
+    if ($x == 'blue') {
+        continue;
+    }
+    echo $x .PHP_EOL;
 }

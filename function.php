@@ -106,10 +106,10 @@ echo 'The value of variable "a" after unset:';
 $a = 'Hello';
 echo 'a is ' . is_array($a); //false
 
-$b = array('red', 'green', 'blue'); //true
+$b = ['red', 'green', 'blue']; //true
 echo 'b is ' . is_array($b);
 
-$c = array('Peter'=>'35', 'Ben'=>'37', 'Joe'=>'43'); //true
+$c = ['Peter' => '35', 'Ben' => '37', 'Joe' => '43']; //true
 echo 'c is ' . is_array($c);
 
 $d = 'red, green, blue';

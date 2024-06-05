@@ -116,6 +116,6 @@
 
 do {
     $number = rand(1, 100);
-    echo $number;
-}while ($number < 20);
-//я не знаю чи це правильно
+    echo $number . PHP_EOL;
+}while ($number > 20);
+

@@ -64,8 +64,8 @@ sudo service php8.3-fpm restart
 ## Встановити розширення для браузера :
 xdebug-helper
 
-![Xdebug.png](img/Xdebug.png)
+![Xdebug.png](../img/Xdebug.png)
 
 ## Налаштування для phpstorm
 
-![php.education.png](img/php.education.png)
+![php.education.png](../img/php.education.png)

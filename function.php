@@ -16,7 +16,7 @@ function sum($x, $y)
 echo '5 + 13 =' . sum(5, 13);
 echo '34 + 12 =' . sum(34, 12);
 
-function t1():void
+function t1(): void
 {
     $a = 7;
     echo $a . PHP_EOL;
@@ -26,7 +26,7 @@ t1();
 
 $b = 22;
 
-function t2():void
+function t2(): void
 {
     global $b;
     $b = 33;
@@ -45,11 +45,12 @@ function t5(): void
         $f = 200;
         echo $f;
     }
+
     echo $f . PHP_EOL;
 }
+
 t5();
 t6();
-
 
 
 $n1 = 5;
@@ -58,8 +59,7 @@ $n2 = 4;
 function increase(): void
 {
     global $n1, $n2;
-    if ($n1 > $n2)
-    {
+    if ($n1 > $n2) {
         $t = $n1;
         $n1 = $n2;
         $n2 = $t;
@@ -257,7 +257,7 @@ echo $result . PHP_EOL;
 
 ///array_unshift() додає елементи на початок масива
 $letters = ['b', 'c', 'd'];
-array_unshift($letters,  'a');
+array_unshift($letters, 'a');
 var_dump($letters);
 
 
@@ -282,7 +282,6 @@ $sum = array_sum($arrayNumber);
 echo 'Сума: ' . $sum . PHP_EOL;
 
 
-
 //Функція для обчислення квадрата числа: Напишіть функцію square($number), яка приймає число і повертає його квадрат.
 //echo square(5); // Вивід: 25
 function square(int $num): int
@@ -304,7 +303,6 @@ function greet(string $name): string
 echo greet('Анна!') . PHP_EOL;
 
 
-
 //Функція для знаходження максимального значення в масиві: Напишіть функцію findMax($array),
 // яка приймає масив чисел і повертає максимальне значення в масиві.
 //// Приклад використання
@@ -314,16 +312,17 @@ echo greet('Анна!') . PHP_EOL;
 //щоб запамятати попередній елемент необхідно створити змінну до конструкції цикла яка зберігає найбільше значення і в циклі це значення оновлюємо
 // якщо воно більше за попереднє
 
-function findMax(array $array)
+function findMax(array $array): int
 {
     $maxValue = $array[0];
     foreach ($array as $value) {
-       if ($value > $maxValue){
-           $maxValue = $value;
-       }
+        if ($value > $maxValue) {
+            $maxValue = $value;
+        }
     }
-return $maxValue;
+    return $maxValue;
 }
+
 $numbers = [1, 5, 3, 9, 2];
 echo findMax($numbers);
 

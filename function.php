@@ -1,74 +1,74 @@
 <?php
-//function myMessage()
-//{
-//    echo 'Hello world';
-//}
-//
-//myMessage();
-//
-//
-//function sum($x, $y)
-//{
-//    $z = $x + $y;
-//    return $z;
-//}
-//
-//echo '5 + 13 =' . sum(5, 13);
-//echo '34 + 12 =' . sum(34, 12);
-//
-//function t1():void
-//{
-//    $a = 7;
-//    echo $a . PHP_EOL;
-//}
-//
-//t1();
-//
-//$b = 22;
-//
-//function t2():void
-//{
-//    global $b;
-//    $b = 33;
-//    echo $b . PHP_EOL;
-//}
-//
-//t2();
-//echo $b . PHP_EOL;
+function myMessage(): void
+{
+    echo 'Hello world';
+}
 
-//функція в функції
-//function t5()
-//{
-//    $f = 100;
-//    function t6()
-//    {
-//        $f = 200;
-//        echo $f;
-//    }
-//    echo $f . PHP_EOL;
-//}
-//t5();
-//t6();
+myMessage();
 
 
-//
-//$n1 = 5;
-//$n2 = 4;
-//
-//function increase()
-//{
-//    global $n1, $n2;
-//    if ($n1 > $n2)
-//    {
-//        $t = $n1;
-//        $n1 = $n2;
-//        $n2 = $t;
-//    }
-//    echo '$n1 = ' . $n1, PHP_EOL;
-//    echo '$n2 = ' . $n2, PHP_EOL;
-//}
-//
-//increase();
+function sum($x, $y)
+{
+    $z = $x + $y;
+    return $z;
+}
+
+echo '5 + 13 =' . sum(5, 13);
+echo '34 + 12 =' . sum(34, 12);
+
+function t1():void
+{
+    $a = 7;
+    echo $a . PHP_EOL;
+}
+
+t1();
+
+$b = 22;
+
+function t2():void
+{
+    global $b;
+    $b = 33;
+    echo $b . PHP_EOL;
+}
+
+t2();
+echo $b . PHP_EOL;
+
+
+function t5(): void
+{
+    $f = 100;
+    function t6(): void
+    {
+        $f = 200;
+        echo $f;
+    }
+    echo $f . PHP_EOL;
+}
+t5();
+t6();
+
+
+
+$n1 = 5;
+$n2 = 4;
+
+function increase(): void
+{
+    global $n1, $n2;
+    if ($n1 > $n2)
+    {
+        $t = $n1;
+        $n1 = $n2;
+        $n2 = $t;
+    }
+    echo '$n1 = ' . $n1, PHP_EOL;
+    echo '$n2 = ' . $n2, PHP_EOL;
+}
+
+increase();
 
 
 //count()  повертає кількість елементів в масиві
@@ -106,6 +106,7 @@ $numbers = [
 $keys = array_keys($numbers, 12);
 var_dump($keys);
 
+
 //array_key_exist()  перевіряє чи існує ключ в масиві
 $array1 = [
     'name' => 'John',
@@ -118,8 +119,9 @@ if (array_key_exists('age', $array)) {
     echo 'Key "age" does not exist in the array';
 }
 
-//array_map() поверає кожне значення масиву
-function number($n)
+
+//array_map() виконує певну дію з кожним елементом масиву
+function number($n): int
 {
     return $n * $n;
 }
@@ -127,15 +129,6 @@ function number($n)
 $arr = [1, 3, 5, 2, 7];
 var_dump(array_map('number', $arr));
 
-//array_filter()  функція фільтрує значення масиву за допомогою зворотнього виклику
-
-function test_odd($var)
-{
-    return $var & 1;
-}
-
-$a = [1, 2, 3, 4, 5];
-var_dump(array_filter($a, 'test_odd'));
 
 //array_diff() порівнює значення масивів і повертає їх відмінності
 $a1 = [
@@ -153,9 +146,11 @@ $a2 = [
 $result = array_diff($a1, $a2);
 var_dump($result);
 
+
 //array_intersect() порівнює значення і повертає збіги
 $result1 = array_intersect($a1, $a2);
 var_dump($result1);
+
 
 //array_values() повертає значення масиву
 $arrayValues = [
@@ -176,7 +171,8 @@ var_dump($a1);
 $car = ['volvo', 'BMW', 'tesla', 'ford', 'toyota', 'mercedes', 'honda', 'opel'];
 var_dump(array_chunk($car, 2));
 
-//array_column() повертає значення одного стовпцяя з масиву
+
+//array_column() повертає значення одного стовпця з масиву
 $array3 = [
     [
         'id' => '5683',
@@ -197,9 +193,11 @@ $array3 = [
 $last_name = array_column($array3, 'last_name');
 var_dump($last_name);
 
+
 //is_array() перевіряє чи є змінна масивом
 $c = ['Peter' => '35', 'Ben' => '37', 'Joe' => '43'];
 echo 'c is ' . is_array($c) . PHP_EOL;
+
 
 //is_int() перевіряє чи є змінна числом
 $a = 32;
@@ -207,20 +205,24 @@ echo 'a is ' . is_int($a) . PHP_EOL;
 $b = '32';
 echo 'b is ' . is_int($b) . PHP_EOL;
 
+
 //trim() видаляє пробіли з початку і кінця рядка
 $text = '  Hello, world!  ';
 echo trim($text) . PHP_EOL;
+
 
 //strlen() визначає кількість символів в рядку або довжину рядка
 $text1 = 'Hello, World!';
 $length = strlen($text1);
 echo $length . PHP_EOL;
 
-//substr()
+
+//substr() використовується для витягання рядка з заданої позиції
 $substring = substr($text1, 7);
 echo $substring . PHP_EOL;
 
-//strpos()
+
+//strpos() використовується для знаходження позицій
 $position = strpos($text1, 'World');
 if ($position !== false) {
     echo 'Підрядок "World" знайдено на позиції: ' . $position . PHP_EOL;
@@ -228,25 +230,57 @@ if ($position !== false) {
     echo 'Підрядок "World" не знайдено' . PHP_EOL;
 }
 
-//sprintf()
+
+//sprintf() повертає відформатованний рядок
 $name = 'John';
 $age = 30;
 $formattedString = sprintf('My name is %s and I am %d years old.', $name, $age);
 echo $formattedString . PHP_EOL;
 
+
 //strtolower() замінює великі літери на маленькі
 $text_word = strtolower($text1);
 echo $text_word . PHP_EOL;
 
-//ucfirst()  замінює маленькі літери на великі
+
+//ucfirst()  замінює перші букви на маленькі
 $text_word = ucfirst($text1);
 echo $text_word . PHP_EOL;
+
 
 //str_replace() замінює одне слово на інше
 $search = 'World';
 $replace = 'PHP';
 $result = str_replace($search, $replace, $text1);
 echo $result . PHP_EOL;
+
+
+///array_unshift() додає елементи на початок масива
+$letters = ['b', 'c', 'd'];
+array_unshift($letters,  'a');
+var_dump($letters);
+
+
+//array_unique() видаляє однакові значення з масиву
+$arrayNumber = [1, 1, 2, 2, 4, 4, 7, 53, 46, 68, 65];
+$unique = array_unique($arrayNumber);
+var_dump($unique);
+
+
+//array_search() використовується для пошуку значень у функції
+$array = ['a' => 'apple', 'b' => 'banana', 'c' => 'cherry'];
+$key = array_search('banana', $array);
+if ($key !== false) {
+    echo 'Ключ знайденого елемента: ' . $key . PHP_EOL;
+} else {
+    echo 'Значення не знайдено';
+}
+
+
+//array_sum() використовується для обчислення суми значень масиву
+$sum = array_sum($arrayNumber);
+echo 'Сума: ' . $sum . PHP_EOL;
+
 
 
 //Функція для обчислення квадрата числа: Напишіть функцію square($number), яка приймає число і повертає його квадрат.
@@ -267,7 +301,7 @@ function greet(string $name): string
     return 'Привіт, ' . $name;
 }
 
-echo greet('Анна!');
+echo greet('Анна!') . PHP_EOL;
 
 
 
@@ -280,9 +314,16 @@ echo greet('Анна!');
 //щоб запамятати попередній елемент необхідно створити змінну до конструкції цикла яка зберігає найбільше значення і в циклі це значення оновлюємо
 // якщо воно більше за попереднє
 
-//function findMax($array)
-//{
-//
-//}
-//$numbers = [1, 5, 3, 9, 2];
-//echo findMax($numbers);
+function findMax(array $array)
+{
+    $maxValue = $array[0];
+    foreach ($array as $value) {
+       if ($value > $maxValue){
+           $maxValue = $value;
+       }
+    }
+return $maxValue;
+}
+$numbers = [1, 5, 3, 9, 2];
+echo findMax($numbers);
+

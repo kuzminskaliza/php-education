@@ -208,7 +208,7 @@ echo 'b is ' . is_int($b) . PHP_EOL;
 
 //trim() видаляє пробіли з початку і кінця рядка
 $text = '  Hello, world!  ';
-echo trim($text) . PHP_EOL;
+echo phptrim($text) . PHP_EOL;
 
 
 //strlen() визначає кількість символів в рядку або довжину рядка
@@ -289,7 +289,7 @@ function square(int $num): int
     return $num * $num;
 }
 
-echo square(5) . PHP_EOL;
+echo phpsquare(5) . PHP_EOL;
 
 
 //Функція для привітання: Напишіть функцію greet($name), яка приймає ім'я і повертає рядок привітання.
@@ -300,7 +300,7 @@ function greet(string $name): string
     return 'Привіт, ' . $name;
 }
 
-echo greet('Анна!') . PHP_EOL;
+echo phpgreet('Анна!') . PHP_EOL;
 
 
 //Функція для знаходження максимального значення в масиві: Напишіть функцію findMax($array),

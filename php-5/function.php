@@ -289,7 +289,7 @@ function square(int $num): int
     return $num * $num;
 }
 
-echo phpsquare(5) . PHP_EOL;
+echo square(5) . PHP_EOL;
 
 
 //Функція для привітання: Напишіть функцію greet($name), яка приймає ім'я і повертає рядок привітання.
@@ -300,7 +300,7 @@ function greet(string $name): string
     return 'Привіт, ' . $name;
 }
 
-echo phpgreet('Анна!') . PHP_EOL;
+echo greet('Анна!') . PHP_EOL;
 
 
 //Функція для знаходження максимального значення в масиві: Напишіть функцію findMax($array),

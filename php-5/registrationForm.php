@@ -37,10 +37,7 @@ $nameClass = $emailClass = $ageClass = $dateClass = $websiteClass = $phoneClass 
 
 function clearBadSymbols(string $data): string
 {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+    return htmlspecialchars(stripslashes(trim($data)));
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -243,16 +240,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         <br><br>
         <div class="form-input <?php echo $genderClass; ?>">
-            <label>Стать:</label>
-            <label>
-                <input type="radio" name="gender" <?php echo $gender == 'female' ? 'checked' : ''; ?> value="female">Жінка
-            </label>
-            <label>
-                <input type="radio" name="gender" <?php echo $gender == 'male' ? 'checked' : ''; ?> value="male">Чоловік
-            </label>
-            <label>
-                <input type="radio" name="gender" <?php echo $gender == 'other' ? 'checked' : ''; ?> value="other"> Інше
-            </label>
+            <label for="gender">Стать:</label>
+            <input type="radio" id="gender-female" name="gender" <?php echo $gender == 'female' ? 'checked' : ''; ?> value="female">
+            <label for="gender-female">Жінка</label>
+                <input type="radio" id="gender-male" name="gender" <?php echo $gender == 'male' ? 'checked' : ''; ?> value="male">
+            <label for="gender-male">Чоловік</label>
+                <input type="radio" id="other" name="gender" <?php echo $gender == 'other' ? 'checked' : ''; ?> value="other">
+            <label for="other">Інше</label>
             <span class="error"><?php echo $genderErr; ?></span>
         </div>
         <br><br>

@@ -31,11 +31,11 @@
 <?php
 $formShow = true;
 
-$nameErr = $emailErr = $ageErr = $dateErr = $websiteErr = $phoneErr = $passwordErr = $confirm_passwordErr = $genderErr = $colorErr = $agreeErr = '';
-$name = $email = $age = $date = $website = $phone = $password = $confirm_password = $comment = $gender = $color = $agree = '';
-$nameClass = $emailClass = $ageClass = $dateClass = $websiteClass = $phoneClass = $passwordClass = $confirm_passwordClass = $genderClass = $colorClass = $agreeClass = '';
+$nameErr = $emailErr = $ageErr = $dateErr = $websiteErr = $phoneErr = $passwordErr = $confirmPasswordErr = $genderErr = $colorErr = $agreeErr = '';
+$name = $email = $age = $date = $website = $phone = $password = $confirmPassword = $comment = $gender = $color = $agree = '';
+$nameClass = $emailClass = $ageClass = $dateClass = $websiteClass = $phoneClass = $passwordClass = $confirmPasswordClass = $genderClass = $colorClass = $agreeClass = '';
 
-function test_input($data)
+function clearBadSymbols($data)
 {
     $data = trim($data);
     $data = stripslashes($data);
@@ -48,14 +48,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $nameErr = 'Імʼя обовʼязкове';
         $nameClass = 'input-error';
     } else {
-        $name = test_input($_POST['name']);
+        $name = clearBadSymbols($_POST['name']);
         $nameClass = 'input-success';
     }
     if (empty($_POST['email'])) {
         $emailErr = 'Електронна пошта обовʼязкова';
         $emailClass = 'input-error';
     } else {
-        $email = test_input($_POST['email']);
+        $email = clearBadSymbols($_POST['email']);
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $emailErr = 'Недійсний формат електронної пошти';
             $emailClass = 'input-error';
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $ageErr = 'Потрібно вказати вік';
         $ageClass = 'input-error';
     } else {
-        $age = test_input($_POST['age']);
+        $age = clearBadSymbols($_POST['age']);
         if ($age < 18 || $age > 100) {
             $ageErr = 'Вказати вік від 18 до 100';
             $ageClass = 'input-error';
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $dateErr = 'Вкажіть дату народження';
         $dateClass = 'input-error';
     } else {
-        $date = test_input($_POST['date']);
+        $date = clearBadSymbols($_POST['date']);
         $currentDate = date('Y-m-d');
         if (strtotime($date) > strtotime($currentDate)) {
             $dateErr = 'Що там в майбутньому?';
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $websiteErr = '';
         $websiteClass = 'input-error';
     } else {
-        $website = test_input($_POST['website']);
+        $website = clearBadSymbols($_POST['website']);
         if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $website)) {
             $websiteErr = 'Недійсне посилання';
             $websiteClass = 'input-error';
@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $phoneErr = '';
         $phoneClass = 'input-error';
     } else {
-        $phone = test_input($_POST['phone']);
+        $phone = clearBadSymbols($_POST['phone']);
         if (!preg_match('/^\+380\d{9}$/', $phone)) {
             $phoneErr = 'Не вірно вказаний номер ';
             $phoneClass = 'input-error';
@@ -117,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $passwordErr = 'Створіть пароль';
         $passwordClass = 'input-error';
     } else {
-        $password = test_input($_POST['password']);
+        $password = clearBadSymbols($_POST['password']);
         if (strlen($password) < 8) {
             $passwordErr = 'Пароль має містити найменше 8 символів';
             $passwordClass = 'input-error';
@@ -125,30 +125,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $passwordClass = 'input-success';
         }
     }
-    if (empty($_POST['confirm_password'])) {
-        $confirm_passwordErr = 'Підтвердіть пароль';
-        $confirm_passwordClass = 'input-error';
+    if (empty($_POST['confirmPassword'])) {
+        $confirmPasswordErr = 'Підтвердіть пароль';
+        $confirmPasswordClass = 'input-error';
     } else {
-        $confirm_password = test_input($_POST['confirm_password']);
-        if ($confirm_password !== $password) {
-            $confirm_passwordErr = 'Не правильно вказаний пароль';
-            $confirm_passwordClass = 'input-error';
+        $confirmPassword = clearBadSymbols($_POST['confirmPassword']);
+        if ($confirmPassword !== $password) {
+            $confirmPasswordErr = 'Не правильно вказаний пароль';
+            $confirmPasswordClass = 'input-error';
         } else {
-            $confirm_passwordClass = 'input-success';
+            $confirmPasswordClass = 'input-success';
         }
     }
 
     if (empty($_POST['comment'])) {
         $comment = '';
     } else {
-        $comment = test_input($_POST['comment']);
+        $comment = clearBadSymbols($_POST['comment']);
     }
 
     if (empty($_POST['gender'])) {
         $genderErr = 'Вкажіть стать';
         $genderClass = 'input-error';
     } else {
-        $gender = test_input($_POST['gender']);
+        $gender = clearBadSymbols($_POST['gender']);
         $genderClass = 'input-success';
     }
 
@@ -156,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $colorErr = 'Оберіть колір';
         $colorClass = 'input-error';
     } else {
-        $color = test_input($_POST['color']);
+        $color = clearBadSymbols($_POST['color']);
         $colorClass = 'input-success';
     }
 
@@ -164,11 +164,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $agreeErr = 'Підтвердження обовʼязкове';
         $colorClass = 'input-error';
     } else {
-        $agree = test_input($_POST['agree']);
+        $agree = clearBadSymbols($_POST['agree']);
         $agreeClass = 'input-success';
     }
 
-    $arr = [$nameErr, $emailErr, $ageErr, $dateErr, $websiteErr, $phoneErr, $passwordErr, $confirm_passwordErr, $genderErr, $colorErr, $agreeErr];
+    $arr = [$nameErr, $emailErr, $ageErr, $dateErr, $websiteErr, $phoneErr, $passwordErr, $confirmPasswordErr, $genderErr, $colorErr, $agreeErr];
 
     if (empty(array_filter($arr))) {
         $formShow = false;
@@ -182,84 +182,109 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <p><span class="error">Обовʼязково</span></p>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <div class="form-input <?php echo $nameClass; ?>">
-            <label>Імʼя:</label>
-            <input type="text" name="name" value="<?php echo $name; ?>">
+            <label>
+                Імʼя:
+                <input type="text" name="name" value="<?php echo $name; ?>">
+            </label>
             <span class="error"><?php echo $nameErr; ?></span>
-
         </div>
         <br><br>
         <div class="form-input <?php echo $emailClass; ?>">
-            <label>Електронна пошта:</label>
-            <input type="text" name="email" value="<?php echo $email; ?>">
+            <label>
+                Електронна пошта:
+                <input type="text" name="email" value="<?php echo $email; ?>">
+            </label>
             <span class="error"><?php echo $emailErr; ?></span>
-
         </div>
         <br><br>
         <div class="form-input <?php echo $ageClass; ?>">
-            <label>Вік:</label>
-            <input type="number" name="age" value="<?php echo $age; ?>">
+            <label>
+                Вік:
+                <input type="number" name="age" value="<?php echo $age; ?>">
+            </label>
             <span class="error"><?php echo $ageErr; ?></span>
         </div>
         <br> <br>
         <div class="form-input <?php echo $dateClass; ?>">
-            <label>Дата народження:</label>
-            <input type="date" name="date" value="<?php echo $date; ?>">
+            <label>
+                Дата народження:
+                <input type="date" name="date" value="<?php echo $date; ?>">
+            </label>
             <span class="error"><?php echo $dateErr; ?></span>
         </div>
         <br> <br>
         <div class="form-input <?php echo $websiteClass; ?>">
-            <label> Вебсайт: </label>
-            <input type="text" name="website" value="<?php echo $website; ?>">
+            <label>
+                Вебсайт:
+                <input type="text" name="website" value="<?php echo $website; ?>">
+            </label>
             <span class="error"><?php echo $websiteErr; ?></span>
-
         </div>
         <br><br>
         <div class="form-input <?php echo $phoneClass; ?>">
-            <label>Номер телефону:</label>
-            <input type="text" name="phone" value="<?php echo $phone; ?>">
+            <label>
+                Номер телефону:
+                <input type="text" name="phone" value="<?php echo $phone; ?>">
+            </label>
             <span class="error"><?php echo $phoneErr; ?></span>
-
         </div>
         <br><br>
         <div class="form-input <?php echo $passwordClass; ?>">
-            <label>Пароль:</label>
-            <input type="password" name="password" value="<?php echo $password; ?>">
+            <label>
+                Пароль:
+                <input type="password" name="password" value="<?php echo $password; ?>">
+            </label>
             <span class="error"><?php echo $passwordErr; ?></span>
-
         </div>
         <br><br>
-        <div class="form-input <?php echo $confirm_passwordClass; ?>">
-            <label>Повторіть пароль:</label>
-            <input type="password" name="confirm_password" value="<?php echo $confirm_password; ?>">
-            <span class="error"><?php echo $confirm_passwordErr; ?></span>
-
+        <div class="form-input <?php echo $confirmPasswordClass; ?>">
+            <label>
+                Повторіть пароль:
+                <input type="password" name="confirmPassword" value="<?php echo $confirmPassword; ?>">
+            </label>
+            <span class="error"><?php echo $confirmPasswordErr; ?></span>
         </div>
         <br><br>
-        Коментар: <textarea name="comment" rows="5" cols="40"><?php echo $comment; ?></textarea>
+        <div class="form-input <?php echo $comment; ?>">
+            <label>
+                Коментар:
+                <textarea name="comment" rows="5" cols="40"></textarea>
+            </label>
+        </div>
         <br><br>
-        Стать:
         <div class="form-input <?php echo $genderClass; ?>">
-            <input type="radio" name="gender" <?php echo $gender == 'female' ? 'checked' : ''; ?> value="female">Жінка
-            <input type="radio" name="gender" <?php echo $gender == 'male' ? 'checked' : ''; ?> value="male">Чоловік
-            <input type="radio" name="gender" <?php echo $gender == 'other' ? 'checked' : ''; ?> value="other"> Інше
+            <label>Стать:</label>
+            <label>
+                <input type="radio" name="gender" <?php echo $gender == 'female' ? 'checked' : ''; ?> value="female">Жінка
+            </label>
+            <label>
+                <input type="radio" name="gender" <?php echo $gender == 'male' ? 'checked' : ''; ?> value="male">Чоловік
+            </label>
+            <label>
+                <input type="radio" name="gender" <?php echo $gender == 'other' ? 'checked' : ''; ?> value="other"> Інше
+            </label>
             <span class="error"><?php echo $genderErr; ?></span>
         </div>
         <br><br>
         <div class="form-input <?php echo $colorClass; ?>">
-            <label>Улюблений колір</label>
-            <select name="color">
-                <option value="" <?php if (empty($color)) echo 'selected'; ?>>Оберіть колір</option>
-                <option value="Червоний" <?php if ($color === 'Червоний') echo 'selected'; ?>>Червоний</option>
-                <option value="Синій" <?php if ($color === 'Синій') echo 'selected'; ?>>Синій</option>
-                <option value="Зелений" <?php if ($color === 'Зелений') echo 'selected'; ?>>Зелений</option>
-                <option value="Жовтий" <?php if ($color === 'Жовтий') echo 'selected'; ?>>Жовтий</option>
-            </select>
+            <label>
+                Улюблений колір
+                <select name="color">
+                    <option value="" <?php if (empty($color)) echo 'selected'; ?>>Оберіть колір</option>
+                    <option value="red" <?php if ($color === 'Червоний') echo 'selected'; ?>>Червоний</option>
+                    <option value="blue" <?php if ($color === 'Синій') echo 'selected'; ?>>Синій</option>
+                    <option value="green" <?php if ($color === 'Зелений') echo 'selected'; ?>>Зелений</option>
+                    <option value="yellow" <?php if ($color === 'Жовтий') echo 'selected'; ?>>Жовтий</option>
+                </select>
+            </label>
             <span class="error"><?php echo $colorErr; ?></span>
         </div>
         <br> <br>
         <div>
-            <label>Погоджуюсь на опрацювання моїх персональних даних</label>
-            <input type="checkbox" name="agree" <?php if ($agree) echo 'checked'; ?>>
+            <label>
+                Погоджуюсь на опрацювання моїх персональних даних
+                <input type="checkbox" name="agree" <?php if ($agree) echo 'checked'; ?>>
+            </label>
             <span class="error"><?php echo $agreeErr; ?></span>
         </div>
         <input type="submit" name="submit" value="Відправити">
@@ -274,7 +299,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo 'Вебсайт: ' . $website . '<br>';
     echo 'Номер телефону: ' . $phone . '<br>';
     echo 'Пароль: ' . $password . '<br>';
-    echo 'Повторіть пароль: ' . $confirm_password . '<br>';
+    echo 'Повторіть пароль: ' . $confirmPassword . '<br>';
     echo 'Коментар: ' . $comment . '<br>';
     echo 'Стать: ' . $gender . '<br>';
     echo 'Улюблений колір:' . $color . '<br>';

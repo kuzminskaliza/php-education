@@ -189,74 +189,56 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <p><span class="error">Обовʼязково</span></p>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <div class="form-input <?php echo $nameClass; ?>">
-            <label>
-                Імʼя:
-                <input type="text" name="name" value="<?php echo $name; ?>">
-            </label>
+            <label for="name">Імʼя:</label>
+                <input type="text" id="name" name="name" value="<?php echo $name; ?>">
             <span class="error"><?php echo $nameErr; ?></span>
         </div>
         <br><br>
         <div class="form-input <?php echo $emailClass; ?>">
-            <label>
-                Електронна пошта:
-                <input type="text" name="email" value="<?php echo $email; ?>">
-            </label>
+            <label for="email">Електронна пошта:</label>
+                <input type="text" id="email" name="email" value="<?php echo $email; ?>">
             <span class="error"><?php echo $emailErr; ?></span>
         </div>
         <br><br>
         <div class="form-input <?php echo $ageClass; ?>">
-            <label>
-                Вік:
-                <input type="number" name="age" value="<?php echo $age; ?>">
-            </label>
+            <label for="age">Вік:</label>
+                <input type="number" id="age" name="age" value="<?php echo $age; ?>">
             <span class="error"><?php echo $ageErr; ?></span>
         </div>
         <br> <br>
         <div class="form-input <?php echo $dateClass; ?>">
-            <label>
-                Дата народження:
-                <input type="date" name="date" value="<?php echo $date; ?>">
-            </label>
+            <label for="date">Дата народження:</label>
+                <input type="date" id="date" name="date" value="<?php echo $date; ?>">
             <span class="error"><?php echo $dateErr; ?></span>
         </div>
         <br> <br>
         <div class="form-input <?php echo $websiteClass; ?>">
-            <label>
-                Вебсайт:
-                <input type="text" name="website" value="<?php echo $website; ?>">
-            </label>
+            <label for="website">Вебсайт:</label>
+                <input type="text" id="website" name="website" value="<?php echo $website; ?>">
             <span class="error"><?php echo $websiteErr; ?></span>
         </div>
         <br><br>
         <div class="form-input <?php echo $phoneClass; ?>">
-            <label>
-                Номер телефону:
-                <input type="text" name="phone" value="<?php echo $phone; ?>">
-            </label>
+            <label for="phone">Номер телефону:</label>
+                <input type="text" id="phone" name="phone" value="<?php echo $phone; ?>">
             <span class="error"><?php echo $phoneErr; ?></span>
         </div>
         <br><br>
         <div class="form-input <?php echo $passwordClass; ?>">
-            <label>
-                Пароль:
-                <input type="password" name="password" value="<?php echo $password; ?>">
-            </label>
+            <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" value="<?php echo $password; ?>">
             <span class="error"><?php echo $passwordErr; ?></span>
         </div>
         <br><br>
         <div class="form-input <?php echo $confirmPasswordClass; ?>">
-            <label>
-                Повторіть пароль:
-                <input type="password" name="confirmPassword" value="<?php echo $confirmPassword; ?>">
-            </label>
+            <label for="confirmPassword">Повторіть пароль:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" value="<?php echo $confirmPassword; ?>">
             <span class="error"><?php echo $confirmPasswordErr; ?></span>
         </div>
         <br><br>
         <div class="form-input <?php echo $commentClass; ?>">
-            <label>
-                Коментар:
-                <textarea name="comment" rows="5" cols="40"><?php echo $comment; ?></textarea>
-            </label>
+            <label for="comment">Коментар:</label>
+                <textarea id="comment" name="comment" rows="5" cols="40"><?php echo $comment; ?></textarea>
             <span class="error"><?php echo $commentErr; ?></span>
         </div>
         <br><br>
@@ -287,10 +269,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         <br> <br>
         <div>
-            <label>
-                Погоджуюсь на опрацювання моїх персональних даних
-                <input type="checkbox" name="agree" <?php if ($agree) echo 'checked'; ?>>
-            </label>
+            <label for="agree">Погоджуюсь на опрацювання моїх персональних даних</label>
+                <input type="checkbox" id="agree" name="agree" <?php if ($agree) echo 'checked'; ?>>
             <span class="error"><?php echo $agreeErr; ?></span>
         </div>
         <input type="submit" name="submit" value="Відправити">

@@ -208,7 +208,7 @@ echo 'b is ' . is_int($b) . PHP_EOL;
 
 //trim() видаляє пробіли з початку і кінця рядка
 $text = '  Hello, world!  ';
-echo phptrim($text) . PHP_EOL;
+echo trim($text) . PHP_EOL;
 
 
 //strlen() визначає кількість символів в рядку або довжину рядка

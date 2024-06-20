@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Форма для реєстрації</title>
 </head>
 <body>
 <style>
@@ -31,11 +31,11 @@
 <?php
 $formShow = true;
 
-$nameErr = $emailErr = $ageErr = $dateErr = $websiteErr = $phoneErr = $passwordErr = $confirmPasswordErr = $genderErr = $colorErr = $agreeErr = '';
+$nameErr = $emailErr = $ageErr = $dateErr = $websiteErr = $phoneErr = $passwordErr = $confirmPasswordErr = $commentErr = $genderErr = $colorErr = $agreeErr = '';
 $name = $email = $age = $date = $website = $phone = $password = $confirmPassword = $comment = $gender = $color = $agree = '';
-$nameClass = $emailClass = $ageClass = $dateClass = $websiteClass = $phoneClass = $passwordClass = $confirmPasswordClass = $genderClass = $colorClass = $agreeClass = '';
+$nameClass = $emailClass = $ageClass = $dateClass = $websiteClass = $phoneClass = $passwordClass = $confirmPasswordClass = $commentClass = $genderClass = $colorClass = $agreeClass = '';
 
-function clearBadSymbols($data)
+function clearBadSymbols(string $data): string
 {
     $data = trim($data);
     $data = stripslashes($data);
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $ageClass = 'input-error';
     } else {
         $age = clearBadSymbols($_POST['age']);
-        if ($age < 18 || $age > 100) {
+        if (!is_numeric($age) || $age < 18 || $age > 100) {
             $ageErr = 'Вказати вік від 18 до 100';
             $ageClass = 'input-error';
         } else {
@@ -139,9 +139,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (empty($_POST['comment'])) {
-        $comment = '';
+        $commentErr = 'Коментар обовʼязковий';
+        $commentClass = 'input-error';
     } else {
         $comment = clearBadSymbols($_POST['comment']);
+        if (strlen($comment) < 10) {
+            $commentErr = 'Коментар має містити найменше 10 символів';
+            $commentClass = 'input-error';
+        } else {
+            $commentClass = 'input-success';
+        }
     }
 
     if (empty($_POST['gender'])) {
@@ -162,7 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (empty($_POST['agree'])) {
         $agreeErr = 'Підтвердження обовʼязкове';
-        $colorClass = 'input-error';
+        $agreeClass = 'input-error';
     } else {
         $agree = clearBadSymbols($_POST['agree']);
         $agreeClass = 'input-success';
@@ -245,11 +252,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <span class="error"><?php echo $confirmPasswordErr; ?></span>
         </div>
         <br><br>
-        <div class="form-input <?php echo $comment; ?>">
+        <div class="form-input <?php echo $commentClass; ?>">
             <label>
                 Коментар:
-                <textarea name="comment" rows="5" cols="40"></textarea>
+                <textarea name="comment" rows="5" cols="40"><?php echo $comment; ?></textarea>
             </label>
+            <span class="error"><?php echo $commentErr; ?></span>
         </div>
         <br><br>
         <div class="form-input <?php echo $genderClass; ?>">
@@ -267,16 +275,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         <br><br>
         <div class="form-input <?php echo $colorClass; ?>">
-            <label>
-                Улюблений колір
-                <select name="color">
-                    <option value="" <?php if (empty($color)) echo 'selected'; ?>>Оберіть колір</option>
-                    <option value="red" <?php if ($color === 'Червоний') echo 'selected'; ?>>Червоний</option>
-                    <option value="blue" <?php if ($color === 'Синій') echo 'selected'; ?>>Синій</option>
-                    <option value="green" <?php if ($color === 'Зелений') echo 'selected'; ?>>Зелений</option>
-                    <option value="yellow" <?php if ($color === 'Жовтий') echo 'selected'; ?>>Жовтий</option>
-                </select>
-            </label>
+            <label>Улюблений колір </label>
+            <select name="color">
+                <option value="" <?php if (empty($color)) echo 'selected'; ?>>Оберіть колір</option>
+                <option value="red" <?php if ($color === 'Червоний') echo 'selected'; ?>>Червоний</option>
+                <option value="blue" <?php if ($color === 'Синій') echo 'selected'; ?>>Синій</option>
+                <option value="green" <?php if ($color === 'Зелений') echo 'selected'; ?>>Зелений</option>
+                <option value="yellow" <?php if ($color === 'Жовтий') echo 'selected'; ?>>Жовтий</option>
+            </select>
             <span class="error"><?php echo $colorErr; ?></span>
         </div>
         <br> <br>
@@ -298,8 +304,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo 'Дата народження: ' . $date . '<br>';
     echo 'Вебсайт: ' . $website . '<br>';
     echo 'Номер телефону: ' . $phone . '<br>';
-    echo 'Пароль: ' . $password . '<br>';
-    echo 'Повторіть пароль: ' . $confirmPassword . '<br>';
     echo 'Коментар: ' . $comment . '<br>';
     echo 'Стать: ' . $gender . '<br>';
     echo 'Улюблений колір:' . $color . '<br>';

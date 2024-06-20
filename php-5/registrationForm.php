@@ -278,10 +278,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label>Улюблений колір </label>
             <select name="color">
                 <option value="" <?php if (empty($color)) echo 'selected'; ?>>Оберіть колір</option>
-                <option value="red" <?php if ($color === 'Червоний') echo 'selected'; ?>>Червоний</option>
-                <option value="blue" <?php if ($color === 'Синій') echo 'selected'; ?>>Синій</option>
-                <option value="green" <?php if ($color === 'Зелений') echo 'selected'; ?>>Зелений</option>
-                <option value="yellow" <?php if ($color === 'Жовтий') echo 'selected'; ?>>Жовтий</option>
+                <option value="red" <?php if ($color === 'red') echo 'selected'; ?>>Червоний</option>
+                <option value="blue" <?php if ($color === 'blue') echo 'selected'; ?>>Синій</option>
+                <option value="green" <?php if ($color === 'green') echo 'selected'; ?>>Зелений</option>
+                <option value="yellow" <?php if ($color === 'yellow') echo 'selected'; ?>>Жовтий</option>
             </select>
             <span class="error"><?php echo $colorErr; ?></span>
         </div>

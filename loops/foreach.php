@@ -50,3 +50,12 @@ foreach ($color as $x) {
     }
     echo $x .PHP_EOL;
 }
+
+$arr = [
+    'auto' => 'Dodge',
+    'plane' => 'IL-2',
+    'ship' => 'Black Pearl'
+];
+foreach ($arr as $key => $value){
+    echo "$key : $value" . PHP_EOL;
+}

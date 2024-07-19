@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Liza",
+    "age": 20,
+    "data of birthday": "18.05.2004",
+    "favorite color": [
+      "light blue",
+      "light purple"
+    ],
+    "hobbies": [
+      "reading",
+      "swimming"
+    ]
+  },
+  {
+    "name": "Sophia",
+    "age": "13",
+    "data of birthday": "22.07.2010",
+    "favorite color": [
+      "green",
+      "violet"
+    ],
+    "hobbies": [
+      "paint",
+      "dancing",
+      "singing"
+    ]
+  },
+  {
+    "name": "Rostik",
+    "age": "12",
+    "data of birthday": "18.04.2012",
+    "favorite color": [
+      "red",
+      "violet"
+    ],
+    "hobbies": [
+      "football",
+      "sport",
+      "hobbihorsing"
+    ]
+  }
+]

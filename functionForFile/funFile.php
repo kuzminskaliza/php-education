@@ -1,18 +1,18 @@
 <?php
-$file = 'file/test.txt';
+$file = 'test.txt';
 
-//читає файл
-readfile($file);
-echo "\n";
-
-
-//відкриває файл
-$a = fopen($file, 'r');
-fclose($a);// закриває файл
+////читає файл
+//readfile($file);
+//echo "\n";
+//
+//
+////відкриває файл
+//$a = fopen($file, 'r');
+//fclose($a);// закриває файл
 
 
 //Відкриває файл читає і виведить кожен рядок з файлу
-$a = fopen($file, 'r');
+$a = fopen($file, 'r+');
 while ($line = fgets($a)){
     echo $line;
 }

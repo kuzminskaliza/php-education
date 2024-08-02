@@ -1,0 +1,14 @@
+.git
+.gitignore
+.idea
+cookies
+crontab
+definition.md
+file
+fileMd
+functionForFile
+img
+json
+loops
+php-5
+practiceSession

@@ -1,0 +1,21 @@
+input {
+    border: none;
+}
+li {
+    list-style: none;
+}
+
+.file-icon {
+    width: 20px;
+    height: 20px;
+
+}
+.folder-icon {
+    width: 25px;
+    height: 25px;
+}
+
+button {
+    border: none;
+    color: red;
+}

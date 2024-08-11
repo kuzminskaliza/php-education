@@ -35,8 +35,9 @@ function treeFiles(string $dir): void
             if (is_dir($path)) {
                 $input = '<input type="text" name="dir[' . $path . ']" value="' . htmlspecialchars($item) . '">';
 
-                $input .= '<label for="' . $path . '" class="file-label"><span class="icon"></span></label>';
-                $input .= '<input id=""' . $path . ' type="file" name="download_files[' . $path . '][]"  multiple>';
+                $input .= '<label for="' . $path . '" class="file-label"><img src="imgs/clip.png" alt="" class="clip-icon"></label>';
+                $input .= '<input id="' . $path . '" type="file" name="download_files[' . $path . '][]"  multiple>';
+
 
 
                 $icon = '<img src="imgs/folder.png" alt="" class="folder-icon">';

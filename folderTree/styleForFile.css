@@ -19,3 +19,31 @@ button {
     border: none;
     color: red;
 }
+input[type="file"]{
+    display: none;
+}
+
+
+.file-label {
+    padding: 2px 2px;
+    background-color: #6a9eff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.file-label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+
+.file-label:hover {
+    background-color: #9590ff;
+}
+
+.clip-icon {
+    height: 25px;
+    width: 25px;
+}

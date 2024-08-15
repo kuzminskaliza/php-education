@@ -31,7 +31,7 @@ $y = "John"; // $y is a string
 echo $x . "<br>";
 echo $y . "<br>";
 
-$x = $y = $z = "Fruit" . "<br>";
+$x = $y = $z = "Fruits" . "<br>";
 
 echo $x;
 echo $y;

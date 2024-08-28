@@ -7,9 +7,26 @@ $float = 3.14; // число з комою
 
 $string = 'Hello'; //  просто рядок
 
-$bool = true & false;
+$bool = true;
+$bool1 = false;
 
 $array = [1, 3.14, 'hello', true, null]; // масив включає в себе всі типи даних
+
+$null = null; //тип даних який немає значення
+
+$resource = fopen('repeat/text.txt', 'r+'); //тип даних який відкриває зовнішній ресурс
+
+//$object = new Car(); // є екземпляром класу
+
+// Оператори
+// || - це або
+// ! - це 'не'
+// && - це і
+// + - це обєднання
+// === - це оператор порівняння
+// == - це прирівнювання
+// != - не дорівнює
+// !== - є оператором нерівності
 
 
 //Функції для масивів
@@ -44,7 +61,6 @@ print_r($slice); // [2, 3, 4]
 
 
 //  Функціх для рядків
-
 $a = strlen('Hello');  //повертає довжину рядка
 
 
@@ -72,7 +88,7 @@ print_r($break);
 
 echo strlen('Bella!') . PHP_EOL;  // повертає довжину рядка
 
-echo strpos('Cat BOB!' , 'Cat') . PHP_EOL; //шукає певний слово у рядку
+echo strpos('Cat BOB' , 'O') . PHP_EOL; //шукає певний символ у рядку
 
 
 $world = 'Hello Robin!'; //повертає рядок у верхньому регістрі
@@ -95,41 +111,76 @@ $delete = '   Hello world!   ';  //видаляє пробіли
 echo trim($delete);
 
 
+// Загальні функції
+
+$number = 3.2478;
+$round = round($number, 1); //округлює цифру після коми
+echo $round . PHP_EOL;
+
+$rand = rand(1, 100); //оберає будь яке число
+echo $rand . PHP_EOL;
+
+$arrayNumber = [1, 3, 53, 26, 357, 34, 2, 6, 8, 4];
+$maxValue = max($arrayNumber); //обирає найбільше чило
+$minValue = min($arrayNumber); //обрає найменше число
+echo $maxValue, $minValue . PHP_EOL;
 
 
+echo time() . PHP_EOL; // виводить секунди з 1970 року
+
+$data = date('Y-m-d H-i-s'); // виводить дату
+echo $data;
 
 
+//функції для файлів
+$file = "repeat/text.txt";
 
 
+//читає файл
+readfile($file);
+echo "\n";
 
 
+//відкриває файл
+$a = fopen($file, 'r');
+fclose($a);// закриває файл
 
 
+// перевіряє чи існує файл
+if (file_exists($file)){
+    echo 'Файл існує';
+} else {
+    echo 'Файл не існує';
+}
+echo "\n";
 
 
+//записує дані у файл
+file_put_contents($file, 'Hello World!');
+echo "\n";
 
 
+// читає файл
+$content = file_get_contents($file);
+echo $content;
+echo "\n";
 
+// виводить розмір файлу в байтах
+echo filesize($file);
+echo "\n";
 
+// вказує шлях до файлу
+$pathInfo = pathinfo($file);
+print_r($pathInfo);
 
+//$_POST; передає дані на сервер через HTTP-запит
 
+//$_GET; передає дані через URL-адресу
 
+//$_REQUEST; передає дані на сервер через HTTP-запит методом POST GET COOKIE
 
+//$_COOKIE; дані зберігаються  на компютері користувача
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//$_SESSION; використовується для зберігання даних між сесіями, дані зберігаються на серверії протягом певного часу
 
 

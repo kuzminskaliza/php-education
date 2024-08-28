@@ -82,7 +82,7 @@ var_dump($array);
 
 
 $flowers = 'rose, dandelion, lily';
-$break = explode(' ', $flowers);   //розбиває рядок на масив
+$break = explode(',', $flowers);   //розбиває рядок на масив
 print_r($break);
 
 

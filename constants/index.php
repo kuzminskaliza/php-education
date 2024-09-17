@@ -16,6 +16,7 @@ interface Vehicle
      */
     public function drive();
 }
+
 echo 'Базова швидкість' . Vehicle::MAX_SPEED . PHP_EOL;
 
 
@@ -87,5 +88,5 @@ class Tesla extends Cars
 $car = new Cars('Volvo');
 $car->drive();
 
-$tesla =  new Tesla('Tesla', 'White');
+$tesla = new Tesla('Tesla', 'White');
 $tesla->drive();

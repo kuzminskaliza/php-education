@@ -17,6 +17,7 @@ class SuperCar implements Engine, MusicPlayer
     {
         echo 'Двигун запустився';
     }
+
     public function playMusic(): void
     {
         echo 'Музика почала грати';

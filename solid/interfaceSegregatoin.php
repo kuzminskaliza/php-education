@@ -1,6 +1,36 @@
 <?php
-//Клієнти не повинні залежити від методів, які вони не використовують
+//Принцип розділення інтерфейсів - краще зробити багато інтерфейсів ніж один великий, універсальний,
+// тоді класи використовуватимуть тільки ті як їм потрібні
 
+//поганий приклад, тому що машина тих часів не могла відтворювати музику але вимушена реалізувати метод
+interface EngineBad
+{
+    public function startEngine();
+
+    public function playMusic();
+}
+
+class Car80x implements EngineBad
+{
+    public function startEngine(): void
+    {
+        echo 'Двигун машини запустився';
+    }
+
+    public function playMusic(): void
+    {
+        echo 'Машина не може відтворювати музику';
+    }
+}
+
+$car80x = new Car80x();
+$car80x->playMusic();
+$car80x->startEngine();
+
+
+
+
+//Хороший приклад
 interface Engine
 {
     public function startEngine(): void;

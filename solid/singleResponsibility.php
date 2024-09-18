@@ -1,66 +1,39 @@
 <?php
 //Кожен клас повинен відповідати за одну задачу
 
-/**
- *
- */
-class Car
+
+//Поганий приклад
+class OrderBad
 {
-    /**
-     * @var string
-     */
-    private string $model;
-    /**
-     * @var int
-     */
-    private int $years;
-
-    /**
-     * @param $model
-     * @return void
-     */
-    public function setModel($model): void
+    public function process(): void
     {
-        $this->model = $model;
+        echo 'Обробка замовлення' . PHP_EOL;
+        echo 'Відправка листа з підтвердженням замовлення' . PHP_EOL;
     }
+}
+$order = new OrderBad();
+$order->process();
 
-    /**
-     * @param $years
-     * @return void
-     */
-    public function setYears($years): void
-    {
-        $this->years = $years;
-    }
+//Хороший приклад, тому що розділи на різні класи свої обовʼязки
 
-    /**
-     * @return string
-     */
-    public function getModel(): string
+class OrderGood
+{
+    public function process(): void
     {
-       return $this->model;
-    }
-
-    /**
-     * @return int
-     */
-    public function getYears(): int
-    {
-        return $this->years;
-    }
-
-    /**
-     * @return void
-     */
-    public function startEngine(): void
-    {
-        echo 'Запускаємо двигун';
+        echo 'Обробка замовлення' . PHP_EOL;
     }
 }
 
-$car = new Car();
-$car->setModel('model X');
-echo $car->getModel();
-$car->setYears(2024);
-echo $car->getYears();
-$car->startEngine();
+class SendSMS
+{
+    public function sendConfirmationEmail(): void
+    {
+        echo 'Відправка листа з підтвердженням замовлення' . PHP_EOL;
+    }
+}
+
+$order = new OrderGood();
+$order->process();
+
+$send = new SendSMS();
+$send->sendConfirmationEmail();

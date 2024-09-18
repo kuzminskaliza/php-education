@@ -5,18 +5,16 @@
  */
 interface Vehicle
 {
-
     /**
      *
      */
-    const MAX_SPEED = 120;
+    public const MAX_SPEED = 120;
 
     /**
-     * @return mixed
+     * @return void
      */
-    public function drive();
+    public function drive(): void;
 }
-
 echo 'Базова швидкість' . Vehicle::MAX_SPEED . PHP_EOL;
 
 
@@ -32,7 +30,7 @@ class Cars implements Vehicle
     /**
      *
      */
-    const int MAX_SPEED = 200;
+    public const int MAX_SPEED = 200;
 
     /**
      * @return void
@@ -65,7 +63,7 @@ class Tesla extends Cars
     /**
      *
      */
-    const int MAX_SPEED = 360;
+    public const int MAX_SPEED = 360;
 
     /**
      * @return void
@@ -88,5 +86,5 @@ class Tesla extends Cars
 $car = new Cars('Volvo');
 $car->drive();
 
-$tesla = new Tesla('Tesla', 'White');
+$tesla =  new Tesla('Tesla', 'White');
 $tesla->drive();

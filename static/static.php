@@ -52,12 +52,12 @@ class Zoo
 
     public static function getInstance(): Zoo
     {
-        return self::$instance ?? (self::$instance = new self());
+        if (self::$instance == null) {
+            self::$instance = new Zoo();
+        }
+        return self::$instance;
     }
 
-    private function __clone()
-    {
-    }
 
 }
 

@@ -10,7 +10,7 @@ class Plant
         $this->kind = $kind;
     }
 
-    public function __clone()
+    public function __clone(): void
     {
         echo "Рослина $this->kind була клонована";
     }

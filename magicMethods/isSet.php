@@ -1,12 +1,13 @@
 <?php
+
 // Метод isset викликається при перевірці існування властивостей
 class Car
 {
-    private $properties = [
+    private array $properties = [
         'color' => 'red'
     ];
 
-    public function __isset($name)
+    public function __isset(string $name): bool
     {
         return isset($this->properties[$name]);
     }

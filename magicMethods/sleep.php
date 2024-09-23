@@ -10,7 +10,7 @@ class Car
         $this->model = $model;
     }
 
-    public function __sleep()
+    public function __sleep(): array
     {
         echo "Автомобіль готується до серіалізації";
         return ['model'];

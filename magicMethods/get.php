@@ -1,4 +1,5 @@
 <?php
+
 //Метод get викликається при спробі доступу до неіснуючої або недоступної властивості обєкта
 class Product
 {
@@ -6,13 +7,14 @@ class Product
         'name' => 'Телефон',
         'price' => 300
     ];
-  public function __get($name)
-  {
-      if (array_key_exists($name, $this->data)) {
-          return $this->data[$name];
-      }
-      return "Властивість $name не знайдена";
-  }
+
+    public function __get(string $name): mixed
+    {
+        if (array_key_exists($name, $this->data)) {
+            return $this->data[$name];
+        }
+        return "Властивість $name не знайдена";
+    }
 }
 
 $product = new Product();

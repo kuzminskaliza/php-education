@@ -3,9 +3,9 @@
 
 class Animal
 {
-    public function __invoke($action)
+    public function __invoke(string $action): void
     {
-       echo "Тварина виконує $action";
+        echo "Тварина виконує $action";
     }
 }
 

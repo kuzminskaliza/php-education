@@ -1,14 +1,15 @@
 <?php
+
 // Метод callStatic викликається тоді коли звертаєшся до неіснуйочого статичного методу
 class StaticCalculator
 {
-    public static function __callStatic($name, $argument)
+    public static function __callStatic(string $name, array $argument): int|float
     {
         if ($name == 'subtract') {
             return $argument[0] - $argument[1];
         }
         if ($name == 'divide') {
-            return  $argument[0] / $argument[1];
+            return $argument[0] / $argument[1];
         }
         return "Метод $name не знайдено";
     }

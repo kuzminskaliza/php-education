@@ -5,7 +5,7 @@ class Plant
 {
     private $data = [];
 
-    public function __set($name, $value)
+    public function __set(string $name, mixed $value): void
     {
         $this->data[$name] = $value;
         echo "дані $name встановлено як $value" . PHP_EOL;

@@ -1,0 +1,21 @@
+{
+    "name": "liza/php-education",
+    "require-dev": {
+        "guzzlehttp/guzzle": "^7.9",
+        "monolog/monolog": "^3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Liza\\PhpEducation\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Liza",
+            "email": "kuzminskaliza2017@gmail.com"
+        }
+    ],
+    "require": {}
+}
+
+

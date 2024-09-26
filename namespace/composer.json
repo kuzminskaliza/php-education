@@ -1,0 +1,13 @@
+{
+  "name": "liza/php-education",
+  "require": {
+    "monolog/monolog": "^3.7",
+    "guzzlehttp/guzzle": "^7.9"
+  },
+  "autoload": {
+    "psr-4": {
+      "createCar\\": "createCar",
+      "components\\": "components"
+    }
+  }
+}

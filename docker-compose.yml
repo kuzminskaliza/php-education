@@ -10,9 +10,7 @@ services:
     depends_on:
       - php-fpm
   php-fpm:
-    build:
-      context: .
-      dockerfile: docker/php-fpm.Dockerfile
+    image: eliza588/php-fpm-education:8.3
     container_name: php-fpm-education
     volumes:
       - ./:/var/www/php-education
@@ -20,9 +18,7 @@ services:
       - postgres
 
   php-cli:
-    build:
-      context: .
-      dockerfile: docker/php-cli.Dockerfile
+    image: eliza588/php-cli-education:8.3
     container_name: php-cli-education
     volumes:
       - ./:/var/www/php-education

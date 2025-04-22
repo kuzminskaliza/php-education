@@ -8,10 +8,10 @@ class ElectricCars
 {
     use Horn;
     public array $electrics = [];
-    public array $electric1 = [];
-    public array $electric2 = [];
+    public array $electric0 = [];
     public array $electric3 = [];
     public array $electric4 = [];
+    public array $electric5 = [];
 
     public function charging(): void
     {

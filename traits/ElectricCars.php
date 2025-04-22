@@ -7,6 +7,7 @@ require_once('Horn.php');
 class ElectricCars
 {
     use Horn;
+    public array $electrics = [];
 
     public function charging(): void
     {

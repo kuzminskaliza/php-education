@@ -1,0 +1,9 @@
+{
+    "name": "root/php-education",
+    "autoload": {
+        "psr-4": {
+            "Root\\PhpEducation\\": "src/"
+        }
+    },
+    "require": {}
+}

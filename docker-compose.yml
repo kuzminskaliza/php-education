@@ -1,0 +1,42 @@
+services:
+  nginx:
+    image: nginx:1.27.0
+    container_name: nginx-education
+    volumes:
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./:/var/www/php-education
+    ports:
+      - "8080:80"
+    depends_on:
+      - php-fpm
+  php-fpm:
+    image: eliza588/php-fpm-education:8.3
+    container_name: php-fpm-education
+    volumes:
+      - ./:/var/www/php-education
+    depends_on:
+      - postgres
+
+  php-cli:
+    image: eliza588/php-cli-education:8.3
+    container_name: php-cli-education
+    volumes:
+      - ./:/var/www/php-education
+    tty: true
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16.5
+    container_name: postgres-education
+    environment:
+      POSTGRES_DB: postgresql_test
+      POSTGRES_USER: '****'
+      POSTGRES_PASSWORD: '****'
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
